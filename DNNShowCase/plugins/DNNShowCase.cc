@@ -117,7 +117,7 @@ void DNNShowCase::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
   // call the eval model per jet
   // the returned double could also be added to the user floats
   for (const auto& jet: *jets) {
-    std::cout << evalModel(jet) << std::endl;
+    std::cout << "jet discriminator value: " << evalModel(jet) << std::endl;
   }
 }
 
