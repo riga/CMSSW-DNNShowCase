@@ -86,8 +86,10 @@ DNNShowCase::DNNShowCase(const edm::ParameterSet& iConfig)
   PyTuple_SetItem(pyArgs, 1, PyString_FromString(_inputName.c_str()));
   PyTuple_SetItem(pyArgs, 2, PyString_FromString(_outputName.c_str()));
   PyObject* pyResult = PyObject_CallObject(pySetup, pyArgs);
-  if (pyResult == NULL) {
-    if (PyErr_Occurred() != NULL) {
+  if (pyResult == NULL)
+  {
+    if (PyErr_Occurred() != NULL)
+    {
       PyErr_PrintEx(0);
     }
     throw std::runtime_error("An error occured while loading the tfdeploy model");
@@ -116,7 +118,8 @@ void DNNShowCase::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetu
 
   // call the eval model per jet
   // the returned double could also be added to the user floats
-  for (const auto& jet: *jets) {
+  for (const auto& jet: *jets)
+  {
     std::cout << "jet discriminator value: " << evalModel(jet) << std::endl;
   }
 }
