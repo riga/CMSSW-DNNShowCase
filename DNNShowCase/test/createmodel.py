@@ -5,6 +5,13 @@ Example of how a tfdeploy model is created from a tensorflow computation tree.
 """
 
 
+import os
+import sys
+
+# update the sys path to import tfdeploy
+showCaseBase = os.path.normpath(os.path.join(os.path.abspath(__file__), "../.."))
+sys.path.insert(0, os.path.join(showCaseBase, "python"))
+
 import tfdeploy as td
 import tensorflow as tf
 
@@ -23,4 +30,4 @@ sess.run(tf.initialize_all_variables())
 # create the tfdeploy model
 model = td.Model()
 model.add(y, sess)
-model.save("showcasemodel.pkl")
+model.save(os.path.join(showCaseBase, "data", "showcasemodel.pkl"))
