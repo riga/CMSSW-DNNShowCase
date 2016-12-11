@@ -18,5 +18,5 @@ scram b
 cmsenv
 
 # start the test
-cmsRun $CMSSW_BASE/src/DNNShowCase/DNNShowCase/test/showcase_cfg.py
+cmsRun DNNShowCase/DNNShowCase/test/showcase_cfg.py
 ```
